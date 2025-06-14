@@ -8,8 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "lint:biome": "biome lint .",
+    "lint:fix": "biome lint --write .",
     "format": "biome format --write .",
-    "check": "biome check --write ."
+    "format:check": "biome format .",
+    "format:fix": "biome format --write .",
+    "check": "biome check --write .",
+    "check:ci": "biome check .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.3.3",
