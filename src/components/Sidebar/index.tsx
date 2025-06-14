@@ -1,4 +1,5 @@
 import { NavLink, Stack } from '@mantine/core';
+import { useState } from 'react';
 import { 
   IconHome, 
   IconFileText, 
@@ -9,6 +10,7 @@ import {
 
 interface SidebarProps {
   onNavigate?: (path: string) => void;
+  activePath?: string;
 }
 
 const navigationItems = [
@@ -19,7 +21,14 @@ const navigationItems = [
   { label: '設定', icon: IconSettings, path: '/settings' },
 ];
 
-export function Sidebar({ onNavigate }: SidebarProps) {
+export function Sidebar({ onNavigate, activePath }: SidebarProps) {
+  const [activeItem, setActiveItem] = useState(activePath || '/');
+
+  const handleItemClick = (path: string) => {
+    setActiveItem(path);
+    onNavigate?.(path);
+  };
+
   return (
     <Stack gap={0} h="100%" p="md">
       {navigationItems.map((item) => (
@@ -28,7 +37,11 @@ export function Sidebar({ onNavigate }: SidebarProps) {
           href={item.path}
           label={item.label}
           leftSection={<item.icon size="1rem" stroke={1.5} />}
-          onClick={() => onNavigate?.(item.path)}
+          active={activeItem === item.path}
+          onClick={(event) => {
+            event.preventDefault();
+            handleItemClick(item.path);
+          }}
           style={{ borderRadius: '8px' }}
         />
       ))}
