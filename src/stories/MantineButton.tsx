@@ -11,4 +11,4 @@ export interface StoryMantineButtonProps extends ButtonProps {
 /** Mantine Button component wrapper for Storybook */
 export const MantineButton = ({ children, ...props }: StoryMantineButtonProps) => {
   return <Button {...props}>{children}</Button>;
-}; 
+};

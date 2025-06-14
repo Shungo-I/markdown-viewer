@@ -16,11 +16,35 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: ['compact-xs', 'compact-sm', 'compact-md', 'compact-lg', 'compact-xl', 'xs', 'sm', 'md', 'lg', 'xl'],
+      options: [
+        'compact-xs',
+        'compact-sm',
+        'compact-md',
+        'compact-lg',
+        'compact-xl',
+        'xs',
+        'sm',
+        'md',
+        'lg',
+        'xl',
+      ],
     },
     color: {
       control: 'select',
-      options: ['blue', 'red', 'green', 'yellow', 'orange', 'pink', 'purple', 'indigo', 'cyan', 'teal', 'lime', 'gray'],
+      options: [
+        'blue',
+        'red',
+        'green',
+        'yellow',
+        'orange',
+        'pink',
+        'purple',
+        'indigo',
+        'cyan',
+        'teal',
+        'lime',
+        'gray',
+      ],
     },
     radius: {
       control: 'select',
@@ -189,4 +213,4 @@ export const CompactLarge: Story = {
     size: 'compact-lg',
     children: 'Button',
   },
-}; 
+};

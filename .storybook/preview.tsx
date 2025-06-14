@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/nextjs-vite';
 import { MantineProvider } from '@mantine/core';
+import type { Preview } from '@storybook/nextjs-vite';
 import { theme } from '../src/app/theme';
 
 // Import Mantine styles

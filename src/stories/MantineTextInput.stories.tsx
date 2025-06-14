@@ -127,4 +127,4 @@ export const Disabled: Story = {
     placeholder: 'Enter your name',
     disabled: true,
   },
-}; 
+};

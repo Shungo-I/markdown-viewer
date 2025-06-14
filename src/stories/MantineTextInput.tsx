@@ -11,4 +11,4 @@ export interface StoryMantineTextInputProps extends TextInputProps {
 /** Mantine TextInput component wrapper for Storybook */
 export const MantineTextInput = ({ ...props }: StoryMantineTextInputProps) => {
   return <TextInput {...props} />;
-}; 
+};

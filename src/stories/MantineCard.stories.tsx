@@ -1,6 +1,6 @@
+import { Image } from '@mantine/core';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { MantineCard } from './MantineCard';
-import { Image } from '@mantine/core';
 
 const meta = {
   title: 'Example/Card',
@@ -38,7 +38,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: 'Default Card',
-    content: 'This is a default card with shadow and border. It demonstrates the basic card structure.',
+    content:
+      'This is a default card with shadow and border. It demonstrates the basic card structure.',
   },
 };
 
@@ -61,7 +62,8 @@ export const WithoutButton: Story = {
 export const CustomContent: Story = {
   args: {
     title: 'Custom Card',
-    content: 'This card has custom title and content. You can customize these properties to match your needs.',
+    content:
+      'This card has custom title and content. You can customize these properties to match your needs.',
     buttonText: 'Learn More',
   },
 };
@@ -113,4 +115,4 @@ export const WithImage: Story = {
       />
     ),
   },
-}; 
+};
