@@ -1,4 +1,12 @@
+import { MantineProvider } from '@mantine/core';
 import type { Preview } from '@storybook/nextjs-vite';
+import { theme } from '../src/app/theme';
+
+// Import Mantine styles
+import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
+import '@mantine/notifications/styles.css';
+import '@mantine/nprogress/styles.css';
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +24,15 @@ const preview: Preview = {
       test: 'todo',
     },
   },
+  decorators: [
+    (Story) => {
+      return (
+        <MantineProvider theme={theme}>
+          <Story />
+        </MantineProvider>
+      );
+    },
+  ],
 };
 
 export default preview;
