@@ -34,9 +34,6 @@ jobs:
       - name: TypeScript 型チェック
         run: npm run type-check
 
-      - name: Next.js Lint チェック
-        run: npm run lint
-
   build:
     name: Build
     runs-on: ubuntu-latest

@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - **Node.js**: 20.x
 - **Next.js**: 15.x
 - **TypeScript**: 5.x
-- **Linter**: Biome + ESLint
+- **Linter**: Biome
 
 ## 🚀 Getting Started
 
@@ -49,8 +49,7 @@ npm run check:ci
 # TypeScript型チェック
 npm run type-check
 
-# Next.js ESLint
-npm run lint
+
 ```
 
 ## 🔄 GitHub Actions
@@ -69,7 +68,7 @@ npm run lint
 
 ### 🎯 Lint Workflow (`lint.yml`)
 - **Comprehensive Linting**: 全面的なLintチェック
-- **Multiple Tools**: Biome, ESLint, TypeScript
+- **Multiple Tools**: Biome, TypeScript
 - **Trigger**: `main`, `develop`ブランチへのpush/PR時
 
 ## Learn More

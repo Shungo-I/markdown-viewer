@@ -31,7 +31,4 @@ jobs:
         run: npm run format:check
 
       - name: TypeScript 型チェック
-        run: npm run type-check
-
-      - name: Next.js Lint チェック
-        run: npm run lint 
+        run: npm run type-check 
