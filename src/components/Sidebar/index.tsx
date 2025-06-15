@@ -46,6 +46,7 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
               handleItemClick(item.path);
             }}
             className={styles.navItem}
+            data-active={activeItem === item.path || undefined}
           />
         ))}
       </Stack>
