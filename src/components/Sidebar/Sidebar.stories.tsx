@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MantineProvider } from '@mantine/core';
-import { action } from '@storybook/addon-actions';
 import { Sidebar } from './index';
 
 const meta: Meta<typeof Sidebar> = {
@@ -18,8 +17,8 @@ const meta: Meta<typeof Sidebar> = {
       </MantineProvider>
     ),
   ],
-  argTypes: {
-    onNavigate: { action: 'navigated' },
+  args: {
+    onNavigate: (path: string) => console.log('Navigate to:', path),
   },
 };
 
@@ -27,21 +26,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    onNavigate: action('navigate'),
-  },
+  args: {},
 };
 
 export const WithActivePath: Story = {
   args: {
-    onNavigate: action('navigate'),
     activePath: '/files',
   },
 };
 
 export const WithSettingsActive: Story = {
   args: {
-    onNavigate: action('navigate'),
     activePath: '/settings',
   },
 }; 
