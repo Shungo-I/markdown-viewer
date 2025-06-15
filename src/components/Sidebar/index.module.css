@@ -1,9 +1,31 @@
 .sidebar {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.toggleButton {
+  padding: var(--mantine-spacing-md);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collapsed .toggleButton {
+  justify-content: center;
 }
 
 .navigationSection {
   padding: var(--mantine-spacing-md);
+  flex: 1;
+}
+
+.navigationSection.collapsed {
+  padding: var(--mantine-spacing-sm);
 }
 
 .navItem {
@@ -11,9 +33,18 @@
   transition: all 0.2s ease;
 }
 
+.navItem.collapsed {
+  justify-content: center;
+  padding: var(--mantine-spacing-sm);
+}
+
 .navItem:hover:not([data-active]) {
   background-color: #e9ecef;
   transform: translateX(4px);
+}
+
+.navItem.collapsed:hover:not([data-active]) {
+  transform: none;
 }
 
 .navItem:not([data-active]):hover {
