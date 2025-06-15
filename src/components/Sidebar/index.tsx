@@ -1,7 +1,7 @@
 import { ActionIcon, NavLink, Stack, Tooltip } from '@mantine/core';
 import { IconFileText, IconFolder, IconHome, IconMenu2, IconSearch, IconSettings, IconX } from '@tabler/icons-react';
 import { type ComponentType, type FC, useState } from 'react';
-import { useSidebarToggle } from '../../hooks/useSidebarToggle';
+import { useResponsiveSidebar } from '../../hooks/useResponsiveSidebar';
 import styles from './index.module.css';
 
 type SidebarProps = {
@@ -25,7 +25,7 @@ const navigationItems: NavigationItem[] = [
 
 export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
   const [activeItem, setActiveItem] = useState(activePath || '/');
-  const { isCollapsed, toggle } = useSidebarToggle();
+  const { isCollapsed, toggle } = useResponsiveSidebar();
 
   const handleItemClick = (path: string) => {
     setActiveItem(path);
