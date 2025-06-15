@@ -1,13 +1,14 @@
 import { Box, Text, Tree, TreeNodeData } from '@mantine/core';
 import { IconFile, IconFolder, IconMarkdown } from '@tabler/icons-react';
+import { FC } from 'react';
 import { FileNode } from './types';
 
-interface FileTreeProps {
+type FileTreeProps = {
   files: FileNode[];
   onFileSelect?: (file: FileNode) => void;
-}
+};
 
-export function FileTree({ files, onFileSelect }: FileTreeProps) {
+export const FileTree: FC<FileTreeProps> = ({ files, onFileSelect }) => {
   const convertToTreeData = (nodes: FileNode[]): TreeNodeData[] => {
     return nodes.map((node) => ({
       value: node.id,
@@ -40,4 +41,4 @@ export function FileTree({ files, onFileSelect }: FileTreeProps) {
       <Tree data={treeData} />
     </Box>
   );
-} 
+}; 
