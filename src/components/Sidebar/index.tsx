@@ -1,6 +1,6 @@
 import { NavLink, Stack } from '@mantine/core';
 import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
-import { ComponentType, type FC, useState } from 'react';
+import { type ComponentType, type FC, useState } from 'react';
 import styles from './index.module.css';
 
 type SidebarProps = {
