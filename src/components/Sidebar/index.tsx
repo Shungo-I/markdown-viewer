@@ -1,6 +1,7 @@
 import { NavLink, Stack } from '@mantine/core';
 import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
 import { ComponentType, type FC, useState } from 'react';
+import styles from './Sidebar.module.css';
 
 type SidebarProps = {
   onNavigate?: (path: string) => void;
@@ -30,9 +31,9 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
   };
 
   return (
-    <Stack gap={0} h="100%">
+    <Stack gap={0} className={styles.sidebar}>
       {/* ナビゲーションセクション */}
-      <Stack gap={0} p="md">
+      <Stack gap={0} className={styles.navigationSection}>
         {navigationItems.map((item) => (
           <NavLink
             key={item.path}
@@ -44,7 +45,7 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
               event.preventDefault();
               handleItemClick(item.path);
             }}
-            style={{ borderRadius: '8px' }}
+            className={styles.navItem}
           />
         ))}
       </Stack>
