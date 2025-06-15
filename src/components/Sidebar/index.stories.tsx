@@ -1,6 +1,5 @@
 import { MantineProvider } from '@mantine/core';
 import type { Meta, StoryObj } from '@storybook/react';
-import type { FileNode } from './FileTree';
 import { Sidebar } from './index';
 
 const meta: Meta<typeof Sidebar> = {
