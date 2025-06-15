@@ -1,6 +1,7 @@
-import { NavLink, Stack } from '@mantine/core';
-import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
+import { ActionIcon, NavLink, Stack, Tooltip } from '@mantine/core';
+import { IconFileText, IconFolder, IconHome, IconMenu2, IconSearch, IconSettings, IconX } from '@tabler/icons-react';
 import { type ComponentType, type FC, useState } from 'react';
+import { useSidebarToggle } from '../../hooks/useSidebarToggle';
 import styles from './index.module.css';
 
 type SidebarProps = {
@@ -24,6 +25,7 @@ const navigationItems: NavigationItem[] = [
 
 export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
   const [activeItem, setActiveItem] = useState(activePath || '/');
+  const { isCollapsed, toggle } = useSidebarToggle();
 
   const handleItemClick = (path: string) => {
     setActiveItem(path);
@@ -31,24 +33,54 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
   };
 
   return (
-    <Stack gap={0} className={styles.sidebar}>
+    <Stack gap={0} className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
+      {/* トグルボタン */}
+      <div className={styles.toggleButton}>
+        <ActionIcon
+          variant="subtle"
+          size="lg"
+          onClick={toggle}
+          aria-label={isCollapsed ? 'サイドバーを展開' : 'サイドバーを最小化'}
+        >
+          {isCollapsed ? <IconMenu2 size="1.2rem" /> : <IconX size="1.2rem" />}
+        </ActionIcon>
+      </div>
+
       {/* ナビゲーションセクション */}
-      <Stack gap={0} className={styles.navigationSection}>
-        {navigationItems.map((item) => (
-          <NavLink
-            key={item.path}
-            href={item.path}
-            label={item.label}
-            leftSection={<item.icon size="1rem" stroke={1.5} />}
-            active={activeItem === item.path}
-            onClick={(event) => {
-              event.preventDefault();
-              handleItemClick(item.path);
-            }}
-            className={styles.navItem}
-            data-active={activeItem === item.path || undefined}
-          />
-        ))}
+      <Stack gap={0} className={`${styles.navigationSection} ${isCollapsed ? styles.collapsed : ''}`}>
+        {navigationItems.map((item) => {
+          const navItem = (
+            <NavLink
+              key={item.path}
+              href={item.path}
+              label={!isCollapsed ? item.label : undefined}
+              leftSection={<item.icon size="1rem" stroke={1.5} />}
+              active={activeItem === item.path}
+              onClick={(event) => {
+                event.preventDefault();
+                handleItemClick(item.path);
+              }}
+              className={`${styles.navItem} ${isCollapsed ? styles.collapsed : ''}`}
+              data-active={activeItem === item.path || undefined}
+            />
+          );
+
+          // 最小化時はTooltipでラベルを表示
+          if (isCollapsed) {
+            return (
+              <Tooltip
+                key={item.path}
+                label={item.label}
+                position="right"
+                withArrow
+              >
+                {navItem}
+              </Tooltip>
+            );
+          }
+
+          return navItem;
+        })}
       </Stack>
     </Stack>
   );
