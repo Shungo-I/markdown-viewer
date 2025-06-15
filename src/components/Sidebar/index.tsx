@@ -1,6 +1,6 @@
 import { Divider, NavLink, Stack } from '@mantine/core';
 import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
-import { type FC, useState } from 'react';
+import { ComponentType, type FC, useState } from 'react';
 import { type FileNode, FileTree } from './FileTree';
 
 type SidebarProps = {
@@ -12,7 +12,7 @@ type SidebarProps = {
 
 type NavigationItem = {
   label: string;
-  icon: React.ComponentType<{ size?: string | number; stroke?: number }>;
+  icon: ComponentType<{ size?: string | number; stroke?: number }>;
   path: string;
 };
 
