@@ -1,0 +1,21 @@
+.sidebar {
+  height: 100%;
+}
+
+.navigationSection {
+  padding: var(--mantine-spacing-md);
+}
+
+.navItem {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover:not([data-active]) {
+  background-color: #e9ecef;
+  transform: translateX(4px);
+}
+
+.navItem:not([data-active]):hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
