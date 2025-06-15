@@ -1,5 +1,5 @@
 import { NavLink, Stack, Divider } from '@mantine/core';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { 
   IconHome, 
   IconFileText, 
@@ -18,7 +18,7 @@ const navigationItems: NavigationItem[] = [
   { label: '設定', icon: IconSettings, path: '/settings' },
 ];
 
-export function Sidebar({ onNavigate, activePath, files, onFileSelect }: SidebarProps) {
+export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath, files, onFileSelect }) => {
   const [activeItem, setActiveItem] = useState(activePath || '/');
 
   const handleItemClick = (path: string) => {
@@ -55,4 +55,4 @@ export function Sidebar({ onNavigate, activePath, files, onFileSelect }: Sidebar
       )}
     </Stack>
   );
-} 
+}; 
