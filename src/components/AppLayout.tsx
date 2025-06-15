@@ -2,13 +2,14 @@
 
 import { AppShell, Burger, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { FC } from 'react';
 import { Sidebar } from './Sidebar';
 
-interface AppLayoutProps {
+type AppLayoutProps = {
   children: React.ReactNode;
-}
+};
 
-export function AppLayout({ children }: AppLayoutProps) {
+export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const [opened, { toggle }] = useDisclosure();
 
   const handleNavigate = (path: string) => {
@@ -42,4 +43,4 @@ export function AppLayout({ children }: AppLayoutProps) {
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
-} 
+}; 
