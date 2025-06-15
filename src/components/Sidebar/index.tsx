@@ -7,8 +7,20 @@ import {
   IconSettings, 
   IconSearch 
 } from '@tabler/icons-react';
-import { FileTree } from './FileTree';
-import { SidebarProps, NavigationItem } from './types';
+import { FileTree, FileNode } from './FileTree';
+
+type SidebarProps = {
+  onNavigate?: (path: string) => void;
+  activePath?: string;
+  files?: FileNode[];
+  onFileSelect?: (file: FileNode) => void;
+};
+
+type NavigationItem = {
+  label: string;
+  icon: React.ComponentType<any>;
+  path: string;
+};
 
 const navigationItems: NavigationItem[] = [
   { label: 'ホーム', icon: IconHome, path: '/' },

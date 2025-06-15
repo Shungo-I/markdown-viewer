@@ -1,7 +1,15 @@
 import { Box, Text, Tree, TreeNodeData } from '@mantine/core';
 import { IconFile, IconFolder, IconMarkdown } from '@tabler/icons-react';
 import { FC } from 'react';
-import { FileNode } from './types';
+
+export type FileNode = {
+  id: string;
+  name: string;
+  type: 'file' | 'folder';
+  path: string;
+  children?: FileNode[];
+  extension?: string;
+};
 
 type FileTreeProps = {
   files: FileNode[];

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MantineProvider } from '@mantine/core';
 import { Sidebar } from './index';
-import { FileNode } from './types';
+import { FileNode } from './FileTree';
 
 // サンプルファイルデータ
 const sampleFiles: FileNode[] = [
