@@ -1,6 +1,6 @@
-import { Box, Text, Tree, TreeNodeData } from '@mantine/core';
+import { Box, Text, Tree, type TreeNodeData } from '@mantine/core';
 import { IconFile, IconFolder, IconMarkdown } from '@tabler/icons-react';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 export type FileNode = {
   id: string;
@@ -21,7 +21,7 @@ export const FileTree: FC<FileTreeProps> = ({ files, onFileSelect }) => {
     return nodes.map((node) => ({
       value: node.id,
       label: (
-        <Box 
+        <Box
           style={{ display: 'flex', alignItems: 'center', gap: 8 }}
           onClick={() => node.type === 'file' && onFileSelect?.(node)}
         >
@@ -49,4 +49,4 @@ export const FileTree: FC<FileTreeProps> = ({ files, onFileSelect }) => {
       <Tree data={treeData} />
     </Box>
   );
-}; 
+};

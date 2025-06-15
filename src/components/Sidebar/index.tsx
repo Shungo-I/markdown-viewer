@@ -1,13 +1,7 @@
-import { NavLink, Stack, Divider } from '@mantine/core';
-import { useState, FC } from 'react';
-import { 
-  IconHome, 
-  IconFileText, 
-  IconFolder, 
-  IconSettings, 
-  IconSearch 
-} from '@tabler/icons-react';
-import { FileTree, FileNode } from './FileTree';
+import { Divider, NavLink, Stack } from '@mantine/core';
+import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
+import { type FC, useState } from 'react';
+import { type FileNode, FileTree } from './FileTree';
 
 type SidebarProps = {
   onNavigate?: (path: string) => void;
@@ -18,7 +12,7 @@ type SidebarProps = {
 
 type NavigationItem = {
   label: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ size?: string | number; stroke?: number }>;
   path: string;
 };
 
@@ -67,4 +61,4 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath, files, onFil
       )}
     </Stack>
   );
-}; 
+};

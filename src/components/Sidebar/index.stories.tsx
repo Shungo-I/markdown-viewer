@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { MantineProvider } from '@mantine/core';
+import type { Meta, StoryObj } from '@storybook/react';
+import type { FileNode } from './FileTree';
 import { Sidebar } from './index';
-import { FileNode } from './FileTree';
 
 // サンプルファイルデータ
 const sampleFiles: FileNode[] = [
@@ -104,4 +104,4 @@ export const WithFileTreeAndActivePath: Story = {
     activePath: '/settings',
     files: sampleFiles,
   },
-}; 
+};

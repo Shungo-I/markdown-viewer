@@ -2,7 +2,7 @@
 
 import { AppShell, Burger, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Sidebar } from './Sidebar';
 
 type AppLayoutProps = {
@@ -43,4 +43,4 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
-}; 
+};
