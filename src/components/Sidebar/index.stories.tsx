@@ -19,7 +19,6 @@ const meta: Meta<typeof Sidebar> = {
   ],
   args: {
     onNavigate: (path: string) => console.log('Navigate to:', path),
-    onFileSelect: (file: FileNode) => console.log('File selected:', file),
   },
 };
 
