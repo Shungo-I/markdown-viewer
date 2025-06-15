@@ -1,13 +1,10 @@
-import { Divider, NavLink, Stack } from '@mantine/core';
+import { NavLink, Stack } from '@mantine/core';
 import { IconFileText, IconFolder, IconHome, IconSearch, IconSettings } from '@tabler/icons-react';
 import { ComponentType, type FC, useState } from 'react';
-import { type FileNode, FileTree } from './FileTree';
 
 type SidebarProps = {
   onNavigate?: (path: string) => void;
   activePath?: string;
-  files?: FileNode[];
-  onFileSelect?: (file: FileNode) => void;
 };
 
 type NavigationItem = {
@@ -24,7 +21,7 @@ const navigationItems: NavigationItem[] = [
   { label: '設定', icon: IconSettings, path: '/settings' },
 ];
 
-export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath, files, onFileSelect }) => {
+export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath }) => {
   const [activeItem, setActiveItem] = useState(activePath || '/');
 
   const handleItemClick = (path: string) => {
@@ -51,14 +48,6 @@ export const Sidebar: FC<SidebarProps> = ({ onNavigate, activePath, files, onFil
           />
         ))}
       </Stack>
-
-      {/* ファイルツリーセクション */}
-      {files && files.length > 0 && (
-        <>
-          <Divider />
-          <FileTree files={files} onFileSelect={onFileSelect} />
-        </>
-      )}
     </Stack>
   );
 };
